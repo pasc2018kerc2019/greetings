@@ -1,23 +1,46 @@
 const { resolve } = require('path');
 
 module.exports = {
-  entry: resolve('./Todo.js'),
+  entry: resolve('./PokeList.js'),
   mode: 'development',
   watch :true,
   output: {
     path: resolve('./'),
-    filename: 'Todo.min.js'
+    filename: 'PokeList.min.js'
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
         }
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+           
+          },
+        ],
+      },
+      
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
+        ],
+      },
+
+
     ]
   }
 }

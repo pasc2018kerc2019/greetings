@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
+import img from "./assets/margot.jpg"
 
 
 
@@ -19,20 +20,19 @@ handleMessage () {
 //Rendu
 render () {
     let {message} = this.state;
-    return [
+    return (
     <div>
-        
-
-      <h1>{ message }</h1>
+        <img src={img} alt="la belle margot" />
+      <h1>{message}</h1>
       <button onClick={this.handleMessage.bind(this)}>Changer de message</button>
     </div>
-      ]
+      )
 }
 }
 
 
 
- render{
+ render(
     <App />,
     document.getElementById('root')
-}
+)
